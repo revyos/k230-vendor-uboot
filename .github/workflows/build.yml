@@ -55,13 +55,6 @@ jobs:
               fi
               ${CROSS_COMPILE}gcc -v
 
-              # venv python for sm4
-              sudo apt install -y python3-pip python3-venv
-
-              python3 -m venv venv
-              source venv/bin/activate
-              pip install gmssl
-
               pushd $PWD
                 make k230_${{ matrix.board }}_defconfig
                 make -j$(nproc)
